@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 1: Cybersecurity Risk Assessment | Ayshah Albakri</title>
+<meta name="description" content="Project 1: Cybersecurity Risk Assessment">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="nav"><div class="in"><a class="brand" href="../../index.html">Ayshah Albakri</a>
+<div class="links"><a href="../../index.html#projects">Projects</a><a href="../../company-profile.html">Case study</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></div></div></nav>
+<main class="wrap"><div class="crumbs"><a href="../../index.html">← All projects</a></div><article class="doc"><h1>Project 1: Cybersecurity Risk Assessment</h1>
+<ul>
+<li><strong>Company:</strong> FalconPay (fictional fintech, see <a href="../../company-profile.html">company profile</a>)</li>
+<li><strong>Frameworks used:</strong> NIST SP 800-30 (risk assessment process), quantitative and qualitative analysis</li>
+<li><strong>Deliverables:</strong> risk register (<a href="risk-register.csv">CSV</a>), heat map, treatment plan, cost-benefit analysis</li>
+</ul>
+<h2>1. Objective</h2>
+<p>FalconPay has no formal view of its cybersecurity risks. The goal of this assessment is to identify the most significant risks to its critical business functions, measure them in both business terms (money) and simple ratings, and recommend which controls to fund first.</p>
+<h2>2. Scope</h2>
+<ul>
+<li><strong>In scope:</strong> the ten key assets in the company profile (payment platform, customer database, cloud hosting, identity, endpoints, backups, merchant portal, logging, office network).</li>
+<li><strong>Out of scope:</strong> physical safety risks and non-cyber financial risks.</li>
+</ul>
+<h2>3. Method</h2>
+<ol>
+<li>Identified the critical business functions and the assets that support them.</li>
+<li>For each asset, listed realistic threats and existing weaknesses.</li>
+<li>Rated each risk two ways:<ul>
+<li><strong>Qualitative:</strong> Likelihood (1 to 5) × Impact (1 to 5) = score from 1 to 25.</li>
+<li><strong>Quantitative:</strong> <code>SLE = Asset value × Exposure factor (EF)</code> and <code>ALE = SLE × ARO</code>.</li>
+</ul>
+</li>
+<li>Chose a treatment for each risk (mitigate, transfer, avoid, or accept) and estimated the residual risk.</li>
+<li>Compared the yearly cost of each control with the loss it prevents using <strong>ROSI</strong>:
+    <code>ROSI = ((ALE before − ALE after) − control cost) ÷ control cost</code></li>
+</ol>
+<h3>Rating scales</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Likelihood</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Rare (less than once in 10 years)</td>
+<td>Minimal, no customer impact</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Unlikely</td>
+<td>Minor, internal only</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Possible (about once in 3 to 5 years)</td>
+<td>Moderate, some customers affected</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Likely (about once a year)</td>
+<td>Major, service outage or data exposure</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Almost certain</td>
+<td>Severe, regulatory action or business failure</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Score range</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15 to 25</td>
+<td><span class="lvl Critical">Critical</span></td>
+</tr>
+<tr>
+<td>10 to 14</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>5 to 9</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>1 to 4</td>
+<td><span class="lvl Low">Low</span></td>
+</tr>
+</tbody>
+</table></div>
+<h2>4. Heat map (inherent risk, before new controls)</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Likelihood ↓ / Impact →</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5</strong></td>
+<td>·</td>
+<td>·</td>
+<td>·</td>
+<td>·</td>
+<td>·</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>·</td>
+<td>R07</td>
+<td>·</td>
+<td>R03</td>
+<td>·</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>·</td>
+<td>·</td>
+<td>R05, R10</td>
+<td>R04, R09</td>
+<td>R01, R02</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>·</td>
+<td>R11</td>
+<td>·</td>
+<td>R08</td>
+<td>R06</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>·</td>
+<td>·</td>
+<td>·</td>
+<td>·</td>
+<td>R12</td>
+</tr>
+<tr>
+<td>## 5. Risk register (inherent risk)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risk</th>
+<th>Asset</th>
+<th>SLE (SAR)</th>
+<th>ARO</th>
+<th>ALE (SAR)</th>
+<th>L × I</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R01</td>
+<td>Ransomware encrypts payment platform servers</td>
+<td>Payment processing platform</td>
+<td>1,600,000</td>
+<td>0.2</td>
+<td>320,000</td>
+<td>3 × 5 = 15</td>
+<td><span class="lvl Critical">Critical</span></td>
+</tr>
+<tr>
+<td>R02</td>
+<td>Customer database exposed through a misconfigured cloud storage policy</td>
+<td>Customer database (PII)</td>
+<td>1,800,000</td>
+<td>0.15</td>
+<td>270,000</td>
+<td>3 × 5 = 15</td>
+<td><span class="lvl Critical">Critical</span></td>
+</tr>
+<tr>
+<td>R03</td>
+<td>Employee account taken over through phishing</td>
+<td>Corporate identity (SSO)</td>
+<td>300,000</td>
+<td>1.0</td>
+<td>300,000</td>
+<td>4 × 4 = 16</td>
+<td><span class="lvl Critical">Critical</span></td>
+</tr>
+<tr>
+<td>R04</td>
+<td>DDoS attack takes the payment API offline</td>
+<td>Mobile app &amp; API gateway</td>
+<td>375,000</td>
+<td>0.5</td>
+<td>187,500</td>
+<td>3 × 4 = 12</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>R05</td>
+<td>Third-party SDK in the mobile app contains a vulnerability</td>
+<td>Mobile app &amp; API gateway</td>
+<td>300,000</td>
+<td>0.3</td>
+<td>90,000</td>
+<td>3 × 3 = 9</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>R06</td>
+<td>Insider with excessive privileges alters merchant settlement data</td>
+<td>Payment processing platform</td>
+<td>400,000</td>
+<td>0.1</td>
+<td>40,000</td>
+<td>2 × 5 = 10</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>R07</td>
+<td>Laptop with unencrypted data is lost or stolen</td>
+<td>Employee endpoints</td>
+<td>45,000</td>
+<td>2.0</td>
+<td>90,000</td>
+<td>4 × 2 = 8</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>R08</td>
+<td>Backups fail silently and cannot be restored</td>
+<td>Backup storage</td>
+<td>400,000</td>
+<td>0.1</td>
+<td>40,000</td>
+<td>2 × 4 = 8</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>R09</td>
+<td>Unpatched internet-facing merchant portal is exploited</td>
+<td>Merchant portal</td>
+<td>240,000</td>
+<td>0.3</td>
+<td>72,000</td>
+<td>3 × 4 = 12</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>R10</td>
+<td>Security logs are not retained long enough to investigate an incident</td>
+<td>Logging / SIEM</td>
+<td>150,000</td>
+<td>0.2</td>
+<td>30,000</td>
+<td>3 × 3 = 9</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>R11</td>
+<td>Rogue access point in the office captures staff credentials</td>
+<td>Office network &amp; Wi-Fi</td>
+<td>50,000</td>
+<td>0.2</td>
+<td>10,000</td>
+<td>2 × 2 = 4</td>
+<td><span class="lvl Low">Low</span></td>
+</tr>
+<tr>
+<td>R12</td>
+<td>Primary cloud region outage stops all services</td>
+<td>Cloud hosting</td>
+<td>750,000</td>
+<td>0.05</td>
+<td>37,500</td>
+<td>1 × 5 = 5</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>## 6. Treatment plan and residual risk</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Treatment</th>
+<th>Key controls</th>
+<th>Residual</th>
+<th>Cost / year (SAR)</th>
+<th>ALE after (SAR)</th>
+<th>ROSI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R01</td>
+<td>Mitigate</td>
+<td>EDR on all servers; immutable offline backups; network segmentation; tested restore runbook</td>
+<td>6 <span class="lvl Medium">(Medium)</span></td>
+<td>120,000</td>
+<td>160,000</td>
+<td>0.33</td>
+</tr>
+<tr>
+<td>R02</td>
+<td>Mitigate</td>
+<td>Least-privilege resource policies; CSPM scanning; encryption with customer-managed keys; DLP</td>
+<td>4 <span class="lvl Low">(Low)</span></td>
+<td>120,000</td>
+<td>90,000</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>R03</td>
+<td>Mitigate</td>
+<td>Phishing-resistant MFA; quarterly phishing simulations; conditional access</td>
+<td>6 <span class="lvl Medium">(Medium)</span></td>
+<td>90,000</td>
+<td>75,000</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>R04</td>
+<td>Transfer + Mitigate</td>
+<td>Cloud DDoS protection service; rate limiting; autoscaling; cyber insurance</td>
+<td>4 <span class="lvl Low">(Low)</span></td>
+<td>150,000</td>
+<td>37,500</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>R05</td>
+<td>Mitigate</td>
+<td>Software composition analysis in CI; vendor security assessment; SBOM</td>
+<td>4 <span class="lvl Low">(Low)</span></td>
+<td>40,000</td>
+<td>30,000</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>R06</td>
+<td>Mitigate</td>
+<td>Separation of duties; PAM; quarterly access recertification; integrity monitoring</td>
+<td>4 <span class="lvl Low">(Low)</span></td>
+<td>70,000</td>
+<td>12,000</td>
+<td>-0.6</td>
+</tr>
+<tr>
+<td>R07</td>
+<td>Mitigate</td>
+<td>Full disk encryption; MDM remote wipe; clean desk policy</td>
+<td>2 <span class="lvl Low">(Low)</span></td>
+<td>25,000</td>
+<td>900</td>
+<td>2.56</td>
+</tr>
+<tr>
+<td>R08</td>
+<td>Mitigate</td>
+<td>Automated backup verification; monthly restore tests; 3-2-1 rule</td>
+<td>3 <span class="lvl Low">(Low)</span></td>
+<td>30,000</td>
+<td>8,000</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>R09</td>
+<td>Mitigate</td>
+<td>Patch SLA (critical within 7 days); WAF; monthly vulnerability scans; annual penetration test</td>
+<td>6 <span class="lvl Medium">(Medium)</span></td>
+<td>45,000</td>
+<td>19,200</td>
+<td>0.17</td>
+</tr>
+<tr>
+<td>R10</td>
+<td>Mitigate</td>
+<td>12-month log retention; SIEM correlation rules; log integrity protection</td>
+<td>2 <span class="lvl Low">(Low)</span></td>
+<td>35,000</td>
+<td>3,000</td>
+<td>-0.23</td>
+</tr>
+<tr>
+<td>R11</td>
+<td>Accept</td>
+<td>Monitor with wireless survey twice a year; WPA3-Enterprise already in place</td>
+<td>4 <span class="lvl Low">(Low)</span></td>
+<td>0</td>
+<td>10,000</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>R12</td>
+<td>Mitigate</td>
+<td>Warm standby in a second availability zone; geo-redundant backups; DR runbook</td>
+<td>3 <span class="lvl Low">(Low)</span></td>
+<td>240,000</td>
+<td>15,000</td>
+<td>-0.91</td>
+</tr>
+<tr>
+<td>## 7. Key findings</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<ol>
+<li><strong>Three critical risks</strong> need action first: phishing-based account takeover (R03), ransomware (R01), and exposure of customer data through a cloud misconfiguration (R02).</li>
+<li><strong>Total expected yearly loss drops from SAR 1,487,000 to SAR 460,600</strong> (a 69% reduction) for a combined control budget of SAR 965,000 per year.</li>
+<li><strong>The best value controls</strong> are full disk encryption with remote wipe (R07, ROSI 2.56) and phishing-resistant MFA with awareness training (R03, ROSI 1.5).</li>
+<li>
+<p><strong>Some controls have a negative ROSI but are still recommended:</strong></p>
+<ul>
+<li><strong>R12 (cloud region outage):</strong> rare, but a full outage stops every business function, and regulators expect a tested recovery capability.</li>
+<li><strong>R06 (insider fraud):</strong> separation of duties and access reviews are expected controls for a payment company, regardless of cost.</li>
+<li><strong>R10 (log retention):</strong> without logs, FalconPay cannot investigate incidents or prove compliance.</li>
+</ul>
+<p>ROSI supports the decision but does not replace regulatory and business judgment.
+5. <strong>One risk is accepted:</strong> the rogue access point (R11). The impact is low, WPA3-Enterprise is already in place, and twice-yearly wireless surveys are enough to monitor it.</p>
+</li>
+</ol>
+<h2>8. Recommended roadmap</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Timeline</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>First 30 days</td>
+<td>Enforce MFA for all staff (R03); fix cloud storage policies and enable configuration scanning (R02); start monthly restore tests (R08)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>30 to 90 days</td>
+<td>Deploy EDR and immutable backups (R01); enable DDoS protection and rate limiting (R04); set patch SLAs and a WAF (R09)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>90 to 180 days</td>
+<td>Privileged access management and access recertification (R06); 12-month log retention (R10); warm standby site (R12)</td>
+</tr>
+<tr>
+<td>Ongoing</td>
+<td>Quarterly</td>
+<td>Review the register, update ratings, and report residual risk to management</td>
+</tr>
+</tbody>
+</table></div>
+<h2>9. Limitations</h2>
+<ul>
+<li>Asset values, exposure factors, and occurrence rates are estimates for a fictional company. In a real assessment they would come from finance data, incident history, and industry reports.</li>
+<li>Ratings should be reviewed with each asset owner before approval.</li>
+</ul>
+<h2>10. What I learned</h2>
+<ul>
+<li>Quantitative numbers make risks easier to explain to management, but they depend heavily on the quality of the estimates.</li>
+<li>A heat map shows priorities at a glance, while the register keeps the detail needed to track each risk over time.</li>
+<li>Risk treatment is a business decision: some controls are justified by regulation or catastrophic impact, not only by cost.</li>
+</ul></article></main>
+<footer><div class="wrap">© 2026 Ayshah Albakri · FalconPay is a fictional company used for learning purposes.</div></footer>
+</body></html>

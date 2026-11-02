@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Backup and Recovery Policy | Ayshah Albakri</title>
+<meta name="description" content="Backup and Recovery Policy">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="nav"><div class="in"><a class="brand" href="../../index.html">Ayshah Albakri</a>
+<div class="links"><a href="../../index.html#projects">Projects</a><a href="../../company-profile.html">Case study</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></div></div></nav>
+<main class="wrap"><div class="crumbs"><a href="../../index.html">← All projects</a></div><article class="doc"><h1>Backup and Recovery Policy</h1>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Policy ID</strong></td>
+<td>FP-SEC-POL-03</td>
+</tr>
+<tr>
+<td><strong>Owner</strong></td>
+<td>Head of IT Operations</td>
+</tr>
+<tr>
+<td><strong>Approved by</strong></td>
+<td>Chief Technology Officer</td>
+</tr>
+<tr>
+<td><strong>Effective date</strong></td>
+<td>Draft, pending approval</td>
+</tr>
+<tr>
+<td><strong>Review cycle</strong></td>
+<td>Every 12 months, or after a major change to systems</td>
+</tr>
+<tr>
+<td><strong>Related</strong></td>
+<td>NCA ECC subdomains 2-9 (Backup and Recovery Management) and 3-1 (Cybersecurity Resilience Aspects of BCM)</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>FalconPay is a fictional company. This document is a portfolio sample.</p>
+</blockquote>
+<h2>1. Purpose</h2>
+<p>To make sure FalconPay can restore its systems and data after ransomware, accidental deletion, hardware failure, or a disaster, within the recovery targets set in the business impact analysis.</p>
+<h2>2. Scope</h2>
+<p>All production systems, databases, cloud workloads, configuration files, and critical business documents.</p>
+<h2>3. Roles and responsibilities</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Head of IT Operations</td>
+<td>Owns the policy and the backup systems</td>
+</tr>
+<tr>
+<td>System owners</td>
+<td>Define what must be backed up and confirm recovery targets</td>
+</tr>
+<tr>
+<td>Security Lead</td>
+<td>Reviews backup security and encryption</td>
+</tr>
+<tr>
+<td>Internal audit</td>
+<td>Checks that restore tests are performed and documented</td>
+</tr>
+</tbody>
+</table></div>
+<h2>4. Policy statements</h2>
+<h3>4.1 Backup frequency and type</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Data tier</th>
+<th>Examples</th>
+<th>Backup method</th>
+<th>RPO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1</td>
+<td>Payment platform, customer database</td>
+<td>Continuous replication + daily full backup</td>
+<td>15 minutes</td>
+</tr>
+<tr>
+<td>Tier 2</td>
+<td>Merchant portal, fraud monitoring, SIEM</td>
+<td>Daily incremental + weekly full</td>
+<td>24 hours</td>
+</tr>
+<tr>
+<td>Tier 3</td>
+<td>Internal finance and HR files</td>
+<td>Weekly full</td>
+<td>7 days</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2 The 3-2-1 rule</h3>
+<ol>
+<li>Every Tier 1 and Tier 2 system must have at least <strong>3 copies</strong> of its data, on <strong>2 different storage types</strong>, with <strong>1 copy offline or immutable</strong> and stored in a separate location.</li>
+<li>The offline or immutable copy must not be reachable using normal administrator accounts, so ransomware cannot encrypt or delete it.</li>
+</ol>
+<h3>4.3 Security of backups</h3>
+<ol start="3">
+<li>Backups must be <strong>encrypted</strong> at rest and in transit.</li>
+<li>Encryption keys must be stored separately from the backups, in the key management system.</li>
+<li>Access to backup systems must be limited to named backup administrators and protected with phishing-resistant MFA.</li>
+</ol>
+<h3>4.4 Retention</h3>
+<ol start="6">
+<li>Daily backups must be kept for <strong>35 days</strong>, monthly backups for <strong>12 months</strong>, and yearly backups for <strong>5 years</strong>, or longer where the law requires.</li>
+<li>Personal data must not be kept in backups longer than the retention period allows.</li>
+</ol>
+<h3>4.5 Testing</h3>
+<ol start="8">
+<li>Backup jobs must be monitored daily, and failures must be fixed within 1 business day.</li>
+<li>A <strong>restore test</strong> must be performed <strong>every month</strong> for at least one Tier 1 system, and every quarter for Tier 2 systems.</li>
+<li>A <strong>full recovery exercise</strong> of the payment platform must be performed at least <strong>once a year</strong>.</li>
+<li>Every test must be documented: what was restored, how long it took, whether it met the RTO and RPO, and any issues found.</li>
+</ol>
+<h2>5. Compliance and exceptions</h2>
+<ul>
+<li>Monthly reports show backup success rates and restore test results.</li>
+<li>Any system that misses its RPO or RTO in a test must have a corrective action plan within 30 days.</li>
+<li>Exceptions require written approval from the CTO.</li>
+</ul>
+<h2>6. Related documents</h2>
+<ul>
+<li>Business Impact Analysis and Disaster Recovery Plan (Project 4)</li>
+<li>Risk register: R01, R08, R12</li>
+</ul>
+<h2>7. Version history</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Change</th>
+<th>Author</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>2026</td>
+<td>First draft</td>
+<td>Ayshah Albakri</td>
+</tr>
+</tbody>
+</table></div></article></main>
+<footer><div class="wrap">© 2026 Ayshah Albakri · FalconPay is a fictional company used for learning purposes.</div></footer>
+</body></html>

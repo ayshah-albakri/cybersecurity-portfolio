@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 3: NCA ECC Compliance Gap Assessment | Ayshah Albakri</title>
+<meta name="description" content="Project 3: NCA ECC Compliance Gap Assessment">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="nav"><div class="in"><a class="brand" href="../../index.html">Ayshah Albakri</a>
+<div class="links"><a href="../../index.html#projects">Projects</a><a href="../../company-profile.html">Case study</a><a href="../../index.html#about">About</a><a href="../../index.html#contact">Contact</a></div></div></nav>
+<main class="wrap"><div class="crumbs"><a href="../../index.html">← All projects</a></div><article class="doc"><h1>Project 3: NCA ECC Compliance Gap Assessment</h1>
+<ul>
+<li><strong>Company:</strong> FalconPay (fictional fintech, see <a href="../../company-profile.html">company profile</a>)</li>
+<li><strong>Framework:</strong> National Cybersecurity Authority (NCA), Essential Cybersecurity Controls, <strong>ECC-2:2024</strong></li>
+<li><strong>Deliverables:</strong> gap assessment for all 28 subdomains (<a href="gap-assessment.csv">CSV</a>), compliance scores, prioritized remediation plan</li>
+</ul>
+<h2>1. Objective</h2>
+<p>Measure how far FalconPay is from meeting the NCA Essential Cybersecurity Controls, and produce a prioritized plan to close the gaps.</p>
+<h2>2. Scope and approach</h2>
+<ul>
+<li><strong>Framework structure:</strong> ECC-2:2024 has <strong>4 main domains, 28 subdomains, and 110 controls</strong>.</li>
+<li><strong>Level of assessment:</strong> this portfolio assesses each of the <strong>28 subdomains</strong>. A full audit would test every individual control and collect evidence for each one.</li>
+<li><strong>Evidence (simulated):</strong> interviews with system owners, review of existing documents, and configuration screenshots.</li>
+<li><strong>Scoring:</strong></li>
+</ul>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Score</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Implemented</td>
+<td>2</td>
+<td>Requirement is met and evidence exists</td>
+</tr>
+<tr>
+<td>Partially implemented</td>
+<td>1</td>
+<td>Some parts exist, or it is done but not documented or approved</td>
+</tr>
+<tr>
+<td>Not implemented</td>
+<td>0</td>
+<td>No meaningful control in place</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>Compliance % = total score ÷ maximum possible score</code></p>
+<blockquote>
+<p><strong>Note on regulation:</strong> a real payment company in Saudi Arabia would also need to meet the Saudi Central Bank (SAMA) Cyber Security Framework. This project focuses on ECC as the national baseline.</p>
+</blockquote>
+<h2>3. Results summary</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Subdomains</th>
+<th>Score</th>
+<th>Compliance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Cybersecurity Governance</td>
+<td>10</td>
+<td>7 / 20</td>
+<td>35%</td>
+</tr>
+<tr>
+<td>2. Cybersecurity Defense</td>
+<td>15</td>
+<td>16 / 30</td>
+<td>53%</td>
+</tr>
+<tr>
+<td>3. Cybersecurity Resilience</td>
+<td>1</td>
+<td>0 / 2</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>4. Third-Party and Cloud Computing Cybersecurity</td>
+<td>2</td>
+<td>2 / 4</td>
+<td>50%</td>
+</tr>
+<tr>
+<td><strong>Overall</strong></td>
+<td><strong>28</strong></td>
+<td><strong>25 / 56</strong></td>
+<td><strong>45%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>3</strong> subdomains implemented, <strong>19</strong> partially implemented, <strong>6</strong> not implemented.</li>
+<li><strong>14</strong> gaps are high priority.</li>
+</ul>
+<h3>Main observations</h3>
+<ol>
+<li><strong>Governance is the weakest area (35%).</strong> FalconPay has technical tools, but no approved strategy, risk management process, audit program, or clear security roles. Without governance, technical controls are not managed consistently.</li>
+<li><strong>Resilience is at 0%.</strong> There is no business impact analysis or disaster recovery plan, which is a serious gap for a payment company. Project 4 addresses this.</li>
+<li><strong>Identity, backups, and monitoring are partial.</strong> These match the critical risks found in Project 1 (R01, R03, R10).</li>
+<li><strong>Email protection, cryptography, and physical security are strong</strong> and only need maintenance.</li>
+</ol>
+<h2>4. Detailed findings</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Subdomain</th>
+<th>Name</th>
+<th>Status</th>
+<th>Finding</th>
+<th>Recommendation</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-1</td>
+<td>Cybersecurity Strategy</td>
+<td>Partially implemented</td>
+<td>A security roadmap exists in slides but is not approved by management or linked to business goals.</td>
+<td>Formalize a 2-year strategy and get board approval.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>1-2</td>
+<td>Cybersecurity Management</td>
+<td>Partially implemented</td>
+<td>A Security Lead exists but reports to the Head of IT Ops, not independently.</td>
+<td>Create a cybersecurity function reporting to senior management and a steering committee.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>1-3</td>
+<td>Cybersecurity Policies and Procedures</td>
+<td>Partially implemented</td>
+<td>Policies are outdated and unapproved.</td>
+<td>Approve the new policy set (Project 2) and review it yearly.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>1-4</td>
+<td>Cybersecurity Roles and Responsibilities</td>
+<td>Not implemented</td>
+<td>No documented RACI for security tasks.</td>
+<td>Document roles and responsibilities and include them in job descriptions.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>1-5</td>
+<td>Cybersecurity Risk Management</td>
+<td>Not implemented</td>
+<td>No risk register or risk methodology before this project.</td>
+<td>Adopt the risk methodology and register from Project 1; review quarterly.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>1-6</td>
+<td>Cybersecurity in IT Project Management</td>
+<td>Partially implemented</td>
+<td>Security reviews happen for some releases but are not mandatory.</td>
+<td>Add security requirements and review gates to the project lifecycle (secure SDLC).</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>1-7</td>
+<td>Compliance with Cybersecurity Standards, Laws and Regulations</td>
+<td>Partially implemented</td>
+<td>Regulatory requirements are known informally but not tracked.</td>
+<td>Maintain a compliance obligations register.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>1-8</td>
+<td>Periodical Cybersecurity Review and Audit</td>
+<td>Not implemented</td>
+<td>No internal or independent security audit has been performed.</td>
+<td>Schedule a yearly independent cybersecurity review.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>1-9</td>
+<td>Cybersecurity in Human Resources</td>
+<td>Partially implemented</td>
+<td>Background checks are done; offboarding does not always disable access the same day.</td>
+<td>Link HR offboarding to automatic account disabling; signed AUP and NDA for all staff.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>1-10</td>
+<td>Cybersecurity Awareness and Training Program</td>
+<td>Partially implemented</td>
+<td>Onboarding training only; no phishing simulations.</td>
+<td>Yearly training plus quarterly phishing simulations.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-1</td>
+<td>Asset Management</td>
+<td>Partially implemented</td>
+<td>Cloud assets are listed; laptops and SaaS tools are not fully inventoried.</td>
+<td>Maintain a complete asset inventory with owners and classification.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>2-2</td>
+<td>Identity and Access Management</td>
+<td>Partially implemented</td>
+<td>SSO in place; MFA only for engineers; no access reviews.</td>
+<td>MFA for all users, PAM for admins, quarterly access recertification.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-3</td>
+<td>Information System and Information Processing Facilities Protection</td>
+<td>Partially implemented</td>
+<td>Antivirus on laptops; no EDR on servers.</td>
+<td>Deploy EDR on servers and laptops; harden baseline configurations.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-4</td>
+<td>Email Protection</td>
+<td>Implemented</td>
+<td>Email filtering, SPF, DKIM, and DMARC are configured.</td>
+<td>Keep monitoring; add a phishing report button.</td>
+<td><span class="lvl Low">Low</span></td>
+</tr>
+<tr>
+<td>2-5</td>
+<td>Network Security Management</td>
+<td>Partially implemented</td>
+<td>Cloud networks are segmented; office network is flat.</td>
+<td>Segment the office network and restrict management access.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>2-6</td>
+<td>Mobile Devices Security</td>
+<td>Partially implemented</td>
+<td>MDM covers company phones, not laptops.</td>
+<td>Enroll all laptops in MDM with full disk encryption and remote wipe.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>2-7</td>
+<td>Data and Information Protection</td>
+<td>Partially implemented</td>
+<td>Customer data is encrypted in the database; no data classification or DLP.</td>
+<td>Introduce data classification and DLP for customer data.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-8</td>
+<td>Cryptography</td>
+<td>Implemented</td>
+<td>TLS 1.2+ for all traffic; keys managed in the cloud KMS.</td>
+<td>Document a cryptography standard and key rotation schedule.</td>
+<td><span class="lvl Low">Low</span></td>
+</tr>
+<tr>
+<td>2-9</td>
+<td>Backup and Recovery Management</td>
+<td>Partially implemented</td>
+<td>Daily backups run; restores are never tested; no immutable copy.</td>
+<td>Apply the Backup and Recovery Policy (Project 2), including monthly restore tests.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-10</td>
+<td>Vulnerability Management</td>
+<td>Partially implemented</td>
+<td>Scans run occasionally; no patching deadlines.</td>
+<td>Monthly scans and patch SLAs based on severity (CVSS).</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-11</td>
+<td>Penetration Testing</td>
+<td>Not implemented</td>
+<td>No penetration test has been performed.</td>
+<td>Yearly external penetration test of internet-facing systems.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>2-12</td>
+<td>Cybersecurity Event Logs and Monitoring Management</td>
+<td>Partially implemented</td>
+<td>Logs collected in a SIEM; only 30 days retention; no 24/7 monitoring.</td>
+<td>12-month retention, correlation rules, and a managed monitoring service.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-13</td>
+<td>Cybersecurity Incident and Threat Management</td>
+<td>Not implemented</td>
+<td>No written incident response plan.</td>
+<td>Write an incident response plan and playbooks; run a tabletop exercise.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>2-14</td>
+<td>Physical Security</td>
+<td>Implemented</td>
+<td>Badge access, CCTV, and visitor logs at the office; production is in the cloud.</td>
+<td>Review badge access lists quarterly.</td>
+<td><span class="lvl Low">Low</span></td>
+</tr>
+<tr>
+<td>2-15</td>
+<td>Web Application Security</td>
+<td>Partially implemented</td>
+<td>Code reviews done; no WAF; no automated security testing.</td>
+<td>Add a WAF and security testing in the CI pipeline.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>3-1</td>
+<td>Cybersecurity Resilience Aspects of Business Continuity Management</td>
+<td>Not implemented</td>
+<td>No disaster recovery plan or BIA.</td>
+<td>Complete the BIA and DRP (Project 4) and test them yearly.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>4-1</td>
+<td>Third-Party Cybersecurity</td>
+<td>Partially implemented</td>
+<td>Contracts include confidentiality clauses; no security assessment of vendors.</td>
+<td>Security assessment before onboarding critical vendors; security clauses in contracts.</td>
+<td><span class="lvl Medium">Medium</span></td>
+</tr>
+<tr>
+<td>4-2</td>
+<td>Cloud Computing and Hosting Cybersecurity</td>
+<td>Partially implemented</td>
+<td>Hosted in a Saudi cloud region; no cloud security posture monitoring.</td>
+<td>Enable configuration monitoring and document shared responsibilities with the provider.</td>
+<td><span class="lvl High">High</span></td>
+</tr>
+<tr>
+<td>## 5. Remediation roadmap</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Timeline</th>
+<th>Focus</th>
+<th>Subdomains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Foundations</td>
+<td>0 to 3 months</td>
+<td>Approve policies, start risk management, MFA for all, backup testing, incident response plan</td>
+<td>1-3, 1-5, 2-2, 2-9, 2-13</td>
+</tr>
+<tr>
+<td>2. Detection and protection</td>
+<td>3 to 6 months</td>
+<td>EDR, log retention and monitoring, vulnerability management, cloud configuration monitoring, DLP</td>
+<td>2-3, 2-7, 2-10, 2-12, 4-2</td>
+</tr>
+<tr>
+<td>3. Resilience and assurance</td>
+<td>6 to 12 months</td>
+<td>BIA and DRP testing, penetration test, yearly audit, security in projects, third-party assessments</td>
+<td>3-1, 2-11, 1-8, 1-6, 4-1</td>
+</tr>
+<tr>
+<td>4. Maturity</td>
+<td>12 months +</td>
+<td>Strategy, roles, awareness program, remaining medium and low items</td>
+<td>All remaining</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Target:</strong> reach at least <strong>80% overall compliance</strong> within 12 months, with no "Not implemented" subdomains.</p>
+<h2>6. Link to the other projects</h2>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Addressed by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-3 Policies and procedures</td>
+<td>Project 2: Security Policies</td>
+</tr>
+<tr>
+<td>1-5 Risk management</td>
+<td>Project 1: Risk Assessment</td>
+</tr>
+<tr>
+<td>2-2 Identity and access, 2-9 Backup</td>
+<td>Project 2: Password Policy and Backup Policy</td>
+</tr>
+<tr>
+<td>3-1 Resilience and BCM</td>
+<td>Project 4: BIA and DRP</td>
+</tr>
+</tbody>
+</table></div>
+<h2>7. What I learned</h2>
+<ul>
+<li>A gap assessment turns a long list of requirements into a clear picture of where a company stands and what to fix first.</li>
+<li>Governance gaps often matter more than missing tools, because they decide whether controls are maintained.</li>
+<li>"Partially implemented" is the most common result in real assessments: something exists, but it is not documented, approved, or measured.</li>
+</ul></article></main>
+<footer><div class="wrap">© 2026 Ayshah Albakri · FalconPay is a fictional company used for learning purposes.</div></footer>
+</body></html>
